@@ -5,11 +5,13 @@ import az.ingress.libraryapplication.dto.UserResponseDto;
 import az.ingress.libraryapplication.entity.User;
 import az.ingress.libraryapplication.mapper.UserMapper;
 import az.ingress.libraryapplication.repository.UserRepo;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements  UserService{
 
 
