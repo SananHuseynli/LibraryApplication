@@ -4,6 +4,7 @@ import az.ingress.libraryapplication.dto.UserResponseDto;
 import az.ingress.libraryapplication.entity.User;
 import az.ingress.libraryapplication.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,13 +17,11 @@ import java.util.List;
 
 public class UserController {
 
-    private  UserService service;
-
+    private final UserService service;
 
     @GetMapping("/users")
-
-    public List<UserResponseDto> getUsers(){
-         return service.getAllUsers();
+    public List<UserResponseDto> getUsers() {
+        return service.getAllUsers();
     }
 
 }
