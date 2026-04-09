@@ -1,13 +1,13 @@
 package az.ingress.libraryapplication.controller;
 
+import az.ingress.libraryapplication.dto.UserRequestDto;
 import az.ingress.libraryapplication.dto.UserResponseDto;
 import az.ingress.libraryapplication.entity.User;
 import az.ingress.libraryapplication.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,4 +24,24 @@ public class UserController {
         return service.getAllUsers();
     }
 
+
+    @PostMapping(value = "/addUser",consumes = "application/json")
+    public String createUser(@RequestBody UserRequestDto userRequest) {
+        service.createUser(userRequest);
+        return "user created successfully";
+
+    }
+
+    @GetMapping("/{id}")
+    public UserResponseDto getUser(@PathVariable long id) {
+        UserResponseDto userById = service.getUserById(id);
+        return userById;
+
+    }
+
+    @PutMapping("/updateUser")
+    public String updateUser(Long id, @RequestBody UserRequestDto userRequestDto) {
+        service.updateUser(id,userRequestDto);
+        return "user updated successfully";
+    }
 }

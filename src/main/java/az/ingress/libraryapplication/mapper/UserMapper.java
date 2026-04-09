@@ -5,6 +5,8 @@ import az.ingress.libraryapplication.dto.UserResponseDto;
 import az.ingress.libraryapplication.entity.User;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class UserMapper {
 
@@ -28,6 +30,8 @@ public class UserMapper {
         user.setPhoto(userRequestDto.getPhoto());
         user.setEmail(userRequestDto.getEmail());
         user.setPassword(userRequestDto.getPassword());
+        user.setRole(userRequestDto.getRole());
+        user.setCreatedAt(LocalDateTime.now());
         return user;
 
     }

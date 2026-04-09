@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface UserService {
 
-    String createUser(UserRequestDto userRequest);
+    void createUser(UserRequestDto userRequest);
 
     UserResponseDto getUserById(Long id);
 
